@@ -45,7 +45,10 @@ class Ball2:
         self.frame = 0
         self.image = load_image('ball21x21.png')
     def update(self):
-        self.y += 5
+        if self.y < 600 :
+            self.y += 5
+        else:
+            self.y -= 5
     def draw(self):
         frame_width = 21 
         frame_height = 21
