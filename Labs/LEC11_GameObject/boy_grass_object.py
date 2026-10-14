@@ -48,7 +48,7 @@ class Ball2:
         self.frame = 0
         self.image = load_image('ball21x21.png')
     def update(self):
-        if self.y < 600 :
+        if self.y < 590 :
             self.y += 5
         else:
             self.y -= 5
