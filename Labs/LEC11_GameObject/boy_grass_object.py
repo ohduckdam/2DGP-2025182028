@@ -27,16 +27,28 @@ class Boy:
     def draw(self):
         self.image.clip_draw(self.frame * 100, 0, 100, 100, self.x, self.y)
 
-class Ball:
+class Ball1:
     def __init__(self):
         self.x,self.y = random.randint(100,700),50
         self.frame = 0
         self.image = load_image('ball41x41.png')
     def update(self):
-        self.y += random.randint(1,10)
+        self.y += 5
     def draw(self):
         frame_width = 41 
         frame_height = 41
+        self.image.clip_draw(self.frame * 100, 0, frame_width, frame_height,
+                             self.x, self.y ,frame_width,frame_height)
+class Ball2:
+    def __init__(self):
+        self.x,self.y = random.randint(100,700),50
+        self.frame = 0
+        self.image = load_image('ball21x21.png')
+    def update(self):
+        self.y += 5
+    def draw(self):
+        frame_width = 21 
+        frame_height = 21
         self.image.clip_draw(self.frame * 100, 0, frame_width, frame_height,
                              self.x, self.y ,frame_width,frame_height)
 
@@ -53,20 +65,26 @@ def reset_world():
     global running
     global grass
     global team1
+    global team2
+    global team3
     global world
-    global ball
+    global ball1
+    global ball2
     world = []
     # 세계에 존재하는 객체들을 담는 리스트를 만든다
     
     running = True
     grass = Grass()
-    ball = Ball()
+    ball1 = Ball1()
+    ball2 = Ball2()
     world.append(grass)
-    world.append(ball)
+    world.append(ball1)
     team1 = [Boy() for i in range(10)]
     world += team1
-    team2 = [Ball() for i in range(20)]
+    team2 = [Ball1() for i in range(10)]
     world += team2
+    team3 =[Ball2() for i in range(10)]
+    world += team3
 
 def update_world():
     for o in world:
