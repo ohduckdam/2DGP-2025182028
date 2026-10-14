@@ -49,10 +49,11 @@ class Ball2:
         self.frame = 0
         self.image = load_image('ball21x21.png')
     def update(self):
+        a=random.randint(1,10)
         if self.y < 590 :
-            self.y += 5
+            self.y += a
         else:
-            self.y -= 5
+            self.y -= a
     def draw(self):
         frame_width = 21 
         frame_height = 21
