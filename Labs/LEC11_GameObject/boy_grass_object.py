@@ -33,11 +33,10 @@ class Ball:
         self.frame = 0
         self.image = load_image('ball41x41.png')
     def update(self):
-        self.frame = (self.frame + 1) % 10
         self.y += random.randint(1,10)
     def draw(self):
-        frame_width = self.image.w 
-        frame_height = self.image.h
+        frame_width = 41 
+        frame_height = 41
         self.image.clip_draw(self.frame * 100, 0, frame_width, frame_height,
                              self.x, self.y ,frame_width,frame_height)
 
